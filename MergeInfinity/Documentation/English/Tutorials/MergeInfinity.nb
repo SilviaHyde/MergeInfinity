@@ -1,0 +1,1550 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     59939,       1542]
+NotebookOptionsPosition[     57442,       1489]
+NotebookOutlinePosition[     57808,       1505]
+CellTagsIndexPosition[     57765,       1502]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Example Data", "Subsubsection",
+ CellChangeTimes->{{3.751510797652926*^9, 
+  3.751510801367137*^9}},ExpressionUUID->"c0a05cd1-162f-457c-ac32-\
+61a06a6c97d9"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"peopleFacts", "=", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\"\<alice\>\"", "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\"\<age\>\"", "\[Rule]", "29"}], ",", 
+        RowBox[{"\"\<shoeSize\>\"", "\[Rule]", "7"}]}], 
+       "\[RightAssociation]"}]}], ",", 
+     RowBox[{"\"\<bob\>\"", "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\"\<age\>\"", "\[Rule]", "27"}], ",", 
+        RowBox[{"\"\<sex\>\"", "\[Rule]", "\"\<male\>\""}], ",", 
+        RowBox[{"\"\<hair\>\"", "\[Rule]", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{"\"\<color\>\"", "\[Rule]", 
+           InterpretationBox[
+            ButtonBox[
+             TooltipBox[
+              GraphicsBox[{
+                {GrayLevel[0], RectangleBox[{0, 0}]}, 
+                {GrayLevel[0], RectangleBox[{1, -1}]}, 
+                {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+               AspectRatio->1,
+               DefaultBaseStyle->"ColorSwatchGraphics",
+               Frame->True,
+               FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+               FrameTicks->None,
+               
+               ImageSize->
+                Dynamic[{
+                 Automatic, 
+                  1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}],
+               PlotRangePadding->None],
+              StyleBox[
+               RowBox[{"RGBColor", "[", 
+                 RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+               False]],
+             Appearance->None,
+             BaseStyle->{},
+             BaselinePosition->Baseline,
+             ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+               If[
+                Not[
+                 AbsoluteCurrentValue["Deployed"]], 
+                SelectionMove[Typeset`box$, All, Expression]; 
+                FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                FrontEnd`Private`$ColorSelectorInitialColor = 
+                 RGBColor[1, 0, 0]; 
+                FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                MathLink`CallFrontEnd[
+                  FrontEnd`AttachCell[Typeset`box$, 
+                   FrontEndResource["RGBColorValueSelector"], {
+                   0, {Left, Bottom}}, {Left, Top}, 
+                   "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]],
+             DefaultBaseStyle->{},
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            RGBColor[1, 0, 0],
+            Editable->False,
+            Selectable->False]}], "\[RightAssociation]"}]}]}], 
+       "\[RightAssociation]"}]}]}], "\[RightAssociation]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"newFacts", "=", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{"\"\<bob\>\"", "\[Rule]", 
+     RowBox[{"\[LeftAssociation]", 
+      RowBox[{
+       RowBox[{"\"\<age\>\"", "\[Rule]", "35"}], ",", 
+       RowBox[{"\"\<hair\>\"", "\[Rule]", 
+        RowBox[{"\[LeftAssociation]", 
+         RowBox[{"\"\<length\>\"", "\[Rule]", "120"}], 
+         "\[RightAssociation]"}]}]}], "\[RightAssociation]"}]}], 
+    "\[RightAssociation]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.739763017138708*^9, 3.739763030137553*^9}, 
+   3.739763106668048*^9, 3.740479572430447*^9},
+ CellLabel->
+  "7/15/18 01:02:42 \
+In[19]:=",ExpressionUUID->"c30171f5-d5b8-426c-a100-99143f45200a"],
+
+Cell[BoxData[{
+ RowBox[{"<<", "SilviaCollection`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "MergeInfinity`"}]}], "Input",
+ CellChangeTimes->{{3.751510827135189*^9, 3.751510835398329*^9}, {
+  3.751591052616094*^9, 
+  3.7515910531984386`*^9}},ExpressionUUID->"b59e91d8-eb2f-43c9-9246-\
+1eb441e4ec55"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MergeInfinity", "Subsubsection",
+ CellChangeTimes->{{3.7397663813165154`*^9, 
+  3.739766383588173*^9}},ExpressionUUID->"d80f8eaa-3698-4396-9f90-\
+ee7707639a6e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"peopleFacts", ",", "newFacts"}], "}"}], "//", 
+  RowBox[{"MergeInfinity", "[", "f", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7397631461672735`*^9, 3.7397631554559803`*^9}, {
+  3.7397631680106964`*^9, 3.739763173033396*^9}, {3.7397631839791517`*^9, 
+  3.7397631847071953`*^9}, {3.7515108169221168`*^9, 
+  3.7515108200720634`*^9}},ExpressionUUID->"a46120ca-88b6-45fd-bd02-\
+b15c83fb30ec"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"alice\"\>", "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"age\"\>", "\[Rule]", "29"}], ",", 
+      RowBox[{"\<\"shoeSize\"\>", "\[Rule]", "7"}]}], 
+     "\[RightAssociation]"}]}], ",", 
+   RowBox[{"\<\"bob\"\>", "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"age\"\>", "\[Rule]", 
+       RowBox[{"f", "[", 
+        RowBox[{"{", 
+         RowBox[{"27", ",", "35"}], "}"}], "]"}]}], ",", 
+      RowBox[{"\<\"sex\"\>", "\[Rule]", "\<\"male\"\>"}], ",", 
+      RowBox[{"\<\"hair\"\>", "\[Rule]", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"color\"\>", "\[Rule]", 
+          InterpretationBox[
+           ButtonBox[
+            TooltipBox[
+             GraphicsBox[{
+               {GrayLevel[0], RectangleBox[{0, 0}]}, 
+               {GrayLevel[0], RectangleBox[{1, -1}]}, 
+               {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+              AspectRatio->1,
+              DefaultBaseStyle->"ColorSwatchGraphics",
+              Frame->True,
+              FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+              FrameTicks->None,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}],
+              PlotRangePadding->None],
+             StyleBox[
+              RowBox[{"RGBColor", "[", 
+                RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+              False]],
+            Appearance->None,
+            BaseStyle->{},
+            BaselinePosition->Baseline,
+            ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+              If[
+               Not[
+                AbsoluteCurrentValue["Deployed"]], 
+               SelectionMove[Typeset`box$, All, Expression]; 
+               FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+               FrontEnd`Private`$ColorSelectorInitialColor = 
+                RGBColor[1, 0, 0]; 
+               FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+               MathLink`CallFrontEnd[
+                 FrontEnd`AttachCell[Typeset`box$, 
+                  FrontEndResource["RGBColorValueSelector"], {
+                  0, {Left, Bottom}}, {Left, Top}, 
+                  "ClosingActions" -> {
+                   "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+            DefaultBaseStyle->{},
+            Evaluator->Automatic,
+            Method->"Preemptive"],
+           RGBColor[1, 0, 0],
+           Editable->False,
+           Selectable->False]}], ",", 
+         RowBox[{"\<\"length\"\>", "\[Rule]", "120"}]}], 
+        "\[RightAssociation]"}]}]}], "\[RightAssociation]"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.7397631691652093`*^9, 3.7397631856766415`*^9, 
+  3.7397632037059827`*^9, 3.7404838942289934`*^9, 3.7405551249035873`*^9, 
+  3.7405765666856194`*^9},
+ CellLabel->
+  "7/15/18 01:02:46 \
+Out[21]=",ExpressionUUID->"86f6a8d0-5c77-46b1-a3be-430fe045be14"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"peopleFacts", ",", "newFacts"}], "}"}], "//", 
+  RowBox[{"RightComposition", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"branch", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Apply", "[", "Sequence", "]"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"MergeInfinity", "[", "f", "]"}]}], "\[IndentingNewLine]", 
+     "]"}], "\[IndentingNewLine]", ",", 
+    RowBox[{"Map", "[", 
+     RowBox[{"Dataset", "/*", "DatasetGrid"}], "]"}], "\[IndentingNewLine]", 
+    ",", 
+    RowBox[{
+     RowBox[{"Riffle", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<+\>\"", ",", "\"\<\[DoubleLongRightArrow]\>\""}], "}"}],
+         "//", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{"Framed", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"#", ",", "20", ",", "Bold"}], "]"}], ",", 
+            RowBox[{"FrameStyle", "\[Rule]", "None"}]}], "]"}], "&"}], 
+         "]"}]}]}], "]"}], "&"}], "\[IndentingNewLine]", ",", "Row"}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.739763216276225*^9, 3.739763244838422*^9}, {
+  3.7397633132522125`*^9, 3.7397634094866858`*^9}, {3.7397645248383512`*^9, 
+  3.7397645288072977`*^9}},
+ CellLabel->
+  "7/5/18 15:28:49 \
+In[60]:=",ExpressionUUID->"4f15e5ca-fe16-4073-b6c2-b8a7ef7ee0c0"],
+
+Cell[BoxData[
+ TemplateBox[{StyleBox[
+    TagBox[
+     GridBox[{{
+        ItemBox[
+         PaneBox[
+         "\"alice\"", ImageSize -> {{48.00000000000001, Full}, Automatic}], 
+         Background -> GrayLevel[0.95], Alignment -> {Left, Baseline}, 
+         StripOnInput -> False], 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"age\"", ImageSize -> {{28.800000000000004`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+        "29", ImageSize -> {{34, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {"\[SpanFromAbove]", 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"shoeSize\"", ImageSize -> {{76.80000000000001, Full}, Automatic},
+            Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+        "7", ImageSize -> {{34, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {
+        ItemBox[
+         PaneBox[
+         "\"bob\"", ImageSize -> {{48.00000000000001, Full}, Automatic}], 
+         Background -> GrayLevel[0.95], Alignment -> {Left, Baseline}, 
+         StripOnInput -> False], 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"age\"", ImageSize -> {{28.800000000000004`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+        "27", ImageSize -> {{34, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {"\[SpanFromAbove]", 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"sex\"", ImageSize -> {{28.800000000000004`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+        "\"male\"", ImageSize -> {{38.400000000000006`, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {"\[SpanFromAbove]", 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"hair\"", ImageSize -> {{38.400000000000006`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        ItemBox[
+         StyleBox[
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{"\"color\"", "\[Rule]", 
+              InterpretationBox[
+               ButtonBox[
+                TooltipBox[
+                 GraphicsBox[{{
+                    GrayLevel[0], 
+                    RectangleBox[{0, 0}]}, {
+                    GrayLevel[0], 
+                    RectangleBox[{1, -1}]}, {
+                    RGBColor[1, 0, 0], 
+                    RectangleBox[{0, -1}, {2, 1}]}}, DefaultBaseStyle -> 
+                  "ColorSwatchGraphics", AspectRatio -> 1, Frame -> True, 
+                  FrameStyle -> RGBColor[0.6666666666666666, 0., 0.], 
+                  FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                 StyleBox[
+                  RowBox[{"RGBColor", "[", 
+                    RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+                  False]], Appearance -> None, BaseStyle -> {}, 
+                BaselinePosition -> Baseline, DefaultBaseStyle -> {}, 
+                ButtonFunction :> With[{Typeset`box$ = EvaluationBox[]}, 
+                  If[
+                   Not[
+                    AbsoluteCurrentValue["Deployed"]], 
+                   SelectionMove[Typeset`box$, All, Expression]; 
+                   FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                   FrontEnd`Private`$ColorSelectorInitialColor = 
+                    RGBColor[1, 0, 0]; 
+                   FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                   MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
+                Automatic, Method -> "Preemptive"], 
+               RGBColor[1, 0, 0], Editable -> False, Selectable -> False]}], 
+            "\[RightAssociation]"}], ShowStringCharacters -> False, 
+          StripOnInput -> False], StripOnInput -> False]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> False, 
+      GridBoxDividers -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaseStyle -> {FontFamily -> "Verdana", FontSize -> 12}, RowMinHeight -> 
+      1.5, FrameStyle -> GrayLevel[0.85], 
+      BaseStyle -> {FontFamily -> "Verdana", FontSize -> 12}], "Grid"], 
+    LineBreakWithin -> False, NumberMarks -> False, ShowAutoStyles -> False, 
+    StripOnInput -> False],FrameBox[
+    StyleBox["\"+\"", 20, Bold, StripOnInput -> False], FrameStyle -> None, 
+    StripOnInput -> False],StyleBox[
+    TagBox[
+     GridBox[{{
+        ItemBox[
+         PaneBox[
+          StyleBox[
+           StyleBox["\"\"", FontColor -> GrayLevel[0.4]], Italic, 
+           GrayLevel[0.7], StripOnInput -> False], 
+          ImageSize -> {{20, Full}, 15}], Background -> GrayLevel[0.95], 
+         Alignment -> {Left, Baseline}, StripOnInput -> False], 
+        ItemBox[
+         PaneBox[
+          StyleBox["\"age\"", FontColor -> GrayLevel[0.4]], 
+          ImageSize -> {{20, Full}, 15}], Background -> GrayLevel[0.95], 
+         Alignment -> {Left, Baseline}, StripOnInput -> False], 
+        ItemBox[
+         PaneBox[
+          StyleBox["\"hair\"", FontColor -> GrayLevel[0.4]], 
+          ImageSize -> {{20, Full}, 15}], Background -> GrayLevel[0.95], 
+         Alignment -> {Center, Baseline}, StripOnInput -> False], 
+        "\[SpanFromLeft]"}, {
+        ItemBox[
+         PaneBox[
+         "\"bob\"", ImageSize -> {{28.800000000000004`, Full}, Automatic}], 
+         Background -> GrayLevel[0.95], Alignment -> {Left, Baseline}, 
+         StripOnInput -> False], 
+        PaneBox[
+        "35", ImageSize -> {{34, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}], 
+        ItemBox[
+         PaneBox[
+         "\"length\"", ImageSize -> {{57.60000000000001, Full}, Automatic}], 
+         Background -> GrayLevel[0.95], Alignment -> {Left, Baseline}, 
+         StripOnInput -> False], 
+        PaneBox[
+        "120", ImageSize -> {{34, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> False, 
+      GridBoxDividers -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaseStyle -> {FontFamily -> "Verdana", FontSize -> 12}, RowMinHeight -> 
+      1.5, FrameStyle -> GrayLevel[0.85], 
+      BaseStyle -> {FontFamily -> "Verdana", FontSize -> 12}], "Grid"], 
+    LineBreakWithin -> False, NumberMarks -> False, ShowAutoStyles -> False, 
+    StripOnInput -> False],FrameBox[
+    StyleBox["\"\[DoubleLongRightArrow]\"", 20, Bold, StripOnInput -> False], 
+    FrameStyle -> None, StripOnInput -> False],StyleBox[
+    TagBox[
+     GridBox[{{
+        ItemBox[
+         PaneBox[
+         "\"alice\"", ImageSize -> {{48.00000000000001, Full}, Automatic}], 
+         Background -> GrayLevel[0.95], Alignment -> {Left, Baseline}, 
+         StripOnInput -> False], 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"age\"", ImageSize -> {{28.800000000000004`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+        "29", ImageSize -> {{34, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {"\[SpanFromAbove]", 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"shoeSize\"", ImageSize -> {{76.80000000000001, Full}, Automatic},
+            Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+        "7", ImageSize -> {{34, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {
+        ItemBox[
+         PaneBox[
+         "\"bob\"", ImageSize -> {{48.00000000000001, Full}, Automatic}], 
+         Background -> GrayLevel[0.95], Alignment -> {Left, Baseline}, 
+         StripOnInput -> False], 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"age\"", ImageSize -> {{28.800000000000004`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+         StyleBox[
+          RowBox[{"f", "[", 
+            RowBox[{"{", 
+              RowBox[{"27", ",", "35"}], "}"}], "]"}], FontFamily -> 
+          "Source Code Pro", FontSize -> 13, ShowStringCharacters -> True], 
+         ImageSize -> {{60, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {"\[SpanFromAbove]", 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"sex\"", ImageSize -> {{28.800000000000004`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        PaneBox[
+        "\"male\"", ImageSize -> {{38.400000000000006`, Full}, Automatic}, 
+         Alignment -> {Left, Baseline}]}, {"\[SpanFromAbove]", 
+        ItemBox[
+         PaneBox[
+          PaneBox[
+          "\"hair\"", ImageSize -> {{38.400000000000006`, Full}, Automatic}, 
+           Alignment -> {Left, Baseline}], 
+          ImageSize -> {{60, Full}, Automatic}], Background -> 
+         GrayLevel[0.95], Alignment -> {Left, Baseline}, StripOnInput -> 
+         False], 
+        ItemBox[
+         StyleBox[
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              RowBox[{"\"color\"", "\[Rule]", 
+                InterpretationBox[
+                 ButtonBox[
+                  TooltipBox[
+                   GraphicsBox[{{
+                    GrayLevel[0], 
+                    RectangleBox[{0, 0}]}, {
+                    GrayLevel[0], 
+                    RectangleBox[{1, -1}]}, {
+                    RGBColor[1, 0, 0], 
+                    RectangleBox[{0, -1}, {2, 1}]}}, DefaultBaseStyle -> 
+                    "ColorSwatchGraphics", AspectRatio -> 1, Frame -> True, 
+                    FrameStyle -> RGBColor[0.6666666666666666, 0., 0.], 
+                    FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
+                    Dynamic[{
+                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                   StyleBox[
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+                    False]], Appearance -> None, BaseStyle -> {}, 
+                  BaselinePosition -> Baseline, DefaultBaseStyle -> {}, 
+                  ButtonFunction :> With[{Typeset`box$ = EvaluationBox[]}, 
+                    If[
+                    Not[
+                    AbsoluteCurrentValue["Deployed"]], 
+                    SelectionMove[Typeset`box$, All, Expression]; 
+                    FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                    FrontEnd`Private`$ColorSelectorInitialColor = 
+                    RGBColor[1, 0, 0]; 
+                    FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                    MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
+                  Automatic, Method -> "Preemptive"], 
+                 RGBColor[1, 0, 0], Editable -> False, Selectable -> False]}],
+               ",", 
+              RowBox[{"\"length\"", "\[Rule]", "120"}]}], 
+            "\[RightAssociation]"}], ShowStringCharacters -> False, 
+          StripOnInput -> False], StripOnInput -> False]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> False, 
+      GridBoxDividers -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaseStyle -> {FontFamily -> "Verdana", FontSize -> 12}, RowMinHeight -> 
+      1.5, FrameStyle -> GrayLevel[0.85], 
+      BaseStyle -> {FontFamily -> "Verdana", FontSize -> 12}], "Grid"], 
+    LineBreakWithin -> False, NumberMarks -> False, ShowAutoStyles -> False, 
+    StripOnInput -> False]},
+  "RowDefault"]], "Output",
+ CellChangeTimes->{{3.7397632358700266`*^9, 3.739763245627936*^9}, 
+   3.7397633643431816`*^9, 3.7397633929897747`*^9, 3.7397634103071203`*^9, 
+   3.7397645297813115`*^9},
+ CellLabel->
+  "7/5/18 15:28:49 \
+Out[60]=",ExpressionUUID->"818d3377-8e75-4e4c-af72-080b2f953261"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["AssociationDiff", "Subsubsection",
+ CellChangeTimes->{{3.7397663903453503`*^9, 
+  3.739766393768298*^9}},ExpressionUUID->"839fe12c-3f1a-404d-9a2b-\
+cc4630c185c9"],
+
+Cell["complete every Association so they have the same shape:", "Text",
+ CellChangeTimes->{{3.740480792854677*^9, 3.7404808123514276`*^9}, {
+  3.7515554278644123`*^9, 
+  3.7515554609671264`*^9}},ExpressionUUID->"5f3353ad-d216-47d2-b230-\
+c1f391a6c348"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"peopleFacts", ",", "newFacts"}], "}"}], "//", 
+       RowBox[{"MergeInfinity", "[", "Last", "]"}]}], "\[IndentingNewLine]", 
+      ",", "newFacts", "\[IndentingNewLine]", ",", "peopleFacts"}], 
+     "\[IndentingNewLine]", "}"}], "//", 
+    RowBox[{"AssociationAlign", "[", "]"}]}], "//", "Dataset"}], "//", 
+  "DatasetGrid"}]], "Input",
+ CellChangeTimes->{{3.7404832142625885`*^9, 3.740483228602734*^9}},
+ CellLabel->
+  "7/13/18 23:07:08 \
+In[424]:=",ExpressionUUID->"5d466cf3-df33-450e-b14a-18c9db0a03e1"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"alice\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Center, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], "\[SpanFromLeft]", 
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"bob\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Center, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+      "\[SpanFromLeft]"},
+     {
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"age\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"shoeSize\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"age\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"sex\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"hair\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Center, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], "\[SpanFromLeft]"},
+     {"\[SpanFromAbove]", "\[SpanFromAbove]", "\[SpanFromAbove]", 
+      "\[SpanFromAbove]", 
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"color\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        StyleBox["\<\"length\"\>",
+         FontColor->GrayLevel[0.4]],
+        ImageSize->{{20, Full}, 15}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False]},
+     {
+      PaneBox["29",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}], 
+      PaneBox["7",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}], 
+      PaneBox["35",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}], 
+      PaneBox["\<\"male\"\>",
+       Alignment->{Left, Baseline},
+       ImageSize->{{38.400000000000006`, Full}, Automatic}], 
+      PaneBox[
+       StyleBox[
+        InterpretationBox[
+         ButtonBox[
+          TooltipBox[
+           GraphicsBox[{
+             {GrayLevel[0], RectangleBox[{0, 0}]}, 
+             {GrayLevel[0], RectangleBox[{1, -1}]}, 
+             {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+            AspectRatio->1,
+            DefaultBaseStyle->"ColorSwatchGraphics",
+            Frame->True,
+            FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+            FrameTicks->None,
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 1.35 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}],
+            PlotRangePadding->None],
+           StyleBox[
+            RowBox[{"RGBColor", "[", 
+              RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> False]],
+          Appearance->None,
+          BaseStyle->{},
+          BaselinePosition->Baseline,
+          ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+            If[
+             Not[
+              AbsoluteCurrentValue["Deployed"]], 
+             SelectionMove[Typeset`box$, All, Expression]; 
+             FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+             FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[1, 0, 0]; 
+             FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+             MathLink`CallFrontEnd[
+               FrontEnd`AttachCell[Typeset`box$, 
+                FrontEndResource["RGBColorValueSelector"], {
+                0, {Left, Bottom}}, {Left, Top}, 
+                "ClosingActions" -> {
+                 "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+          DefaultBaseStyle->{},
+          Evaluator->Automatic,
+          Method->"Preemptive"],
+         RGBColor[1, 0, 0],
+         Editable->False,
+         Selectable->False],
+        ShowStringCharacters->True,
+        FontFamily->"Source Code Pro",
+        FontSize->13],
+       Alignment->{Left, Baseline},
+       ImageSize->{{60, Full}, Automatic}], 
+      PaneBox["120",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}]},
+     {
+      PaneBox["\<\"\[FilledVerySmallSquare]\"\>",
+       Alignment->{Left, Baseline},
+       ImageSize->{{9.600000000000001, Full}, Automatic}], 
+      PaneBox["\<\"\[FilledVerySmallSquare]\"\>",
+       Alignment->{Left, Baseline},
+       ImageSize->{{9.600000000000001, Full}, Automatic}], 
+      PaneBox["35",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}], 
+      PaneBox["\<\"\[FilledVerySmallSquare]\"\>",
+       Alignment->{Left, Baseline},
+       ImageSize->{{38.400000000000006`, Full}, Automatic}], 
+      PaneBox["\<\"\[FilledVerySmallSquare]\"\>",
+       Alignment->{Left, Baseline},
+       ImageSize->{{9.600000000000001, Full}, Automatic}], 
+      PaneBox["120",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}]},
+     {
+      PaneBox["29",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}], 
+      PaneBox["7",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}], 
+      PaneBox["27",
+       Alignment->{Left, Baseline},
+       ImageSize->{{34, Full}, Automatic}], 
+      PaneBox["\<\"male\"\>",
+       Alignment->{Left, Baseline},
+       ImageSize->{{38.400000000000006`, Full}, Automatic}], 
+      PaneBox[
+       StyleBox[
+        InterpretationBox[
+         ButtonBox[
+          TooltipBox[
+           GraphicsBox[{
+             {GrayLevel[0], RectangleBox[{0, 0}]}, 
+             {GrayLevel[0], RectangleBox[{1, -1}]}, 
+             {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+            AspectRatio->1,
+            DefaultBaseStyle->"ColorSwatchGraphics",
+            Frame->True,
+            FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+            FrameTicks->None,
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 1.35 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}],
+            PlotRangePadding->None],
+           StyleBox[
+            RowBox[{"RGBColor", "[", 
+              RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> False]],
+          Appearance->None,
+          BaseStyle->{},
+          BaselinePosition->Baseline,
+          ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+            If[
+             Not[
+              AbsoluteCurrentValue["Deployed"]], 
+             SelectionMove[Typeset`box$, All, Expression]; 
+             FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+             FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[1, 0, 0]; 
+             FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+             MathLink`CallFrontEnd[
+               FrontEnd`AttachCell[Typeset`box$, 
+                FrontEndResource["RGBColorValueSelector"], {
+                0, {Left, Bottom}}, {Left, Top}, 
+                "ClosingActions" -> {
+                 "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+          DefaultBaseStyle->{},
+          Evaluator->Automatic,
+          Method->"Preemptive"],
+         RGBColor[1, 0, 0],
+         Editable->False,
+         Selectable->False],
+        ShowStringCharacters->True,
+        FontFamily->"Source Code Pro",
+        FontSize->13],
+       Alignment->{Left, Baseline},
+       ImageSize->{{60, Full}, Automatic}], 
+      PaneBox["\<\"\[FilledVerySmallSquare]\"\>",
+       Alignment->{Left, Baseline},
+       ImageSize->{{9.600000000000001, Full}, Automatic}]}
+    },
+    AutoDelete->False,
+    BaseStyle->{FontFamily -> "Verdana", FontSize -> 12},
+    FrameStyle->GrayLevel[0.85],
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxDividers->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{
+     "Columns" -> {{All}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.5}}, 
+      "RowsIndexed" -> {}}],
+   "Grid"],
+  StripOnInput->False,
+  ShowAutoStyles->False,
+  NumberMarks->False,
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{{3.740483217375886*^9, 3.7404832289975395`*^9}},
+ CellLabel->
+  "7/13/18 23:07:08 \
+Out[424]=",ExpressionUUID->"8d52d192-f04e-47d3-8b29-ba2300c9d90b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"peopleFacts", ",", "newFacts"}], "}"}], "//", 
+     RowBox[{"MergeInfinity", "[", "Last", "]"}]}], "\[IndentingNewLine]", 
+    ",", "newFacts", "\[IndentingNewLine]", ",", "peopleFacts"}], 
+   "\[IndentingNewLine]", "}"}], "//", 
+  RowBox[{"AssociationLousyDiff", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7404837025605264`*^9, 3.740483704164024*^9}},
+ CellLabel->
+  "7/15/18 01:03:06 \
+In[22]:=",ExpressionUUID->"d494c18e-2a78-4ea1-8ff3-7da3d95aaebf"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"bob\"\>", "\[Rule]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{"\<\"age\"\>", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"35", ",", "35", ",", "27"}], "}"}]}], 
+    "\[RightAssociation]"}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.7404837049193125`*^9, 3.740576586138935*^9},
+ CellLabel->
+  "7/15/18 01:03:06 \
+Out[22]=",ExpressionUUID->"cc23221c-b6ad-4816-b481-1d7b1bb0d556"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"peopleFacts", ",", "newFacts"}], "}"}], "//", 
+      RowBox[{"MergeInfinity", "[", "Last", "]"}]}], "\[IndentingNewLine]", 
+     ",", "newFacts", "\[IndentingNewLine]", ",", "peopleFacts"}], 
+    "\[IndentingNewLine]", "}"}], "//", 
+   RowBox[{"AssociationStrictDiff", "[", "]"}]}], "//", "\[IndentingNewLine]", 
+  RowBox[{"Dataset", "/*", "DatasetGrid"}]}]], "Input",
+ CellChangeTimes->{{3.7404829926393137`*^9, 3.740483004447547*^9}, {
+   3.7404837226107206`*^9, 3.7404837265025935`*^9}, {3.740483825992405*^9, 
+   3.7404838291441865`*^9}, 3.7405742383261027`*^9},
+ CellLabel->
+  "7/15/18 01:03:10 \
+In[23]:=",ExpressionUUID->"01932027-d89b-49eb-af1e-8c9753f7a40e"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {
+      ItemBox[
+       PaneBox["\<\"alice\"\>",
+        ImageSize->{{48.00000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"age\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{28.800000000000004`, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"29", ",", "\<\"\[FilledVerySmallSquare]\"\>", ",", "29"}], 
+         "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {"\[SpanFromAbove]", 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"shoeSize\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{76.80000000000001, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"7", ",", "\<\"\[FilledVerySmallSquare]\"\>", ",", "7"}], 
+         "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {
+      ItemBox[
+       PaneBox["\<\"bob\"\>",
+        ImageSize->{{48.00000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"age\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{28.800000000000004`, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"35", ",", "35", ",", "27"}], "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {"\[SpanFromAbove]", 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"sex\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{28.800000000000004`, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"\<\"male\"\>", ",", "\<\"\[FilledVerySmallSquare]\"\>", 
+          ",", "\<\"male\"\>"}], "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {"\[SpanFromAbove]", 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"hair\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{38.400000000000006`, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"\[LeftAssociation]", 
+         RowBox[{
+          RowBox[{"\<\"color\"\>", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             InterpretationBox[
+              ButtonBox[
+               TooltipBox[
+                GraphicsBox[{
+                  {GrayLevel[0], RectangleBox[{0, 0}]}, 
+                  {GrayLevel[0], RectangleBox[{1, -1}]}, 
+                  {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+                 AspectRatio->1,
+                 DefaultBaseStyle->"ColorSwatchGraphics",
+                 Frame->True,
+                 FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+                 FrameTicks->None,
+                 
+                 ImageSize->
+                  Dynamic[{
+                   Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}],
+                 PlotRangePadding->None],
+                StyleBox[
+                 RowBox[{"RGBColor", "[", 
+                   RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+                 False]],
+               Appearance->None,
+               BaseStyle->{},
+               BaselinePosition->Baseline,
+               ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+                 If[
+                  Not[
+                   AbsoluteCurrentValue["Deployed"]], 
+                  SelectionMove[Typeset`box$, All, Expression]; 
+                  FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                  FrontEnd`Private`$ColorSelectorInitialColor = 
+                   RGBColor[1, 0, 0]; 
+                  FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                  MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]],
+               DefaultBaseStyle->{},
+               Evaluator->Automatic,
+               Method->"Preemptive"],
+              RGBColor[1, 0, 0],
+              Editable->False,
+              Selectable->False], ",", "\<\"\[FilledVerySmallSquare]\"\>", 
+             ",", 
+             InterpretationBox[
+              ButtonBox[
+               TooltipBox[
+                GraphicsBox[{
+                  {GrayLevel[0], RectangleBox[{0, 0}]}, 
+                  {GrayLevel[0], RectangleBox[{1, -1}]}, 
+                  {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+                 AspectRatio->1,
+                 DefaultBaseStyle->"ColorSwatchGraphics",
+                 Frame->True,
+                 FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+                 FrameTicks->None,
+                 
+                 ImageSize->
+                  Dynamic[{
+                   Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}],
+                 PlotRangePadding->None],
+                StyleBox[
+                 RowBox[{"RGBColor", "[", 
+                   RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+                 False]],
+               Appearance->None,
+               BaseStyle->{},
+               BaselinePosition->Baseline,
+               ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+                 If[
+                  Not[
+                   AbsoluteCurrentValue["Deployed"]], 
+                  SelectionMove[Typeset`box$, All, Expression]; 
+                  FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                  FrontEnd`Private`$ColorSelectorInitialColor = 
+                   RGBColor[1, 0, 0]; 
+                  FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                  MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]],
+               DefaultBaseStyle->{},
+               Evaluator->Automatic,
+               Method->"Preemptive"],
+              RGBColor[1, 0, 0],
+              Editable->False,
+              Selectable->False]}], "}"}]}], ",", 
+          RowBox[{"\<\"length\"\>", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "120", ",", "120", ",", "\<\"\[FilledVerySmallSquare]\"\>"}], 
+            "}"}]}]}], "\[RightAssociation]"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]}
+    },
+    AutoDelete->False,
+    BaseStyle->{FontFamily -> "Verdana", FontSize -> 12},
+    FrameStyle->GrayLevel[0.85],
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxDividers->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{
+     "Columns" -> {{All}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.5}}, 
+      "RowsIndexed" -> {}}],
+   "Grid"],
+  StripOnInput->False,
+  ShowAutoStyles->False,
+  NumberMarks->False,
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{{3.74048371869164*^9, 3.7404837272499495`*^9}, 
+   3.740483829551622*^9, 3.740574243540578*^9, 3.740576592376319*^9},
+ CellLabel->
+  "7/15/18 01:03:12 \
+Out[23]=",ExpressionUUID->"3feb7689-40aa-4e64-9507-bc362afb515c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"peopleFacts", ",", "newFacts"}], "}"}], "//", 
+      RowBox[{"MergeInfinity", "[", "Last", "]"}]}], "\[IndentingNewLine]", 
+     ",", "newFacts", "\[IndentingNewLine]", ",", "peopleFacts"}], 
+    "\[IndentingNewLine]", "}"}], "//", 
+   RowBox[{"AssociationStrictDiff", "[", 
+    RowBox[{"<|", 
+     RowBox[{"\"\<test\>\"", "\[Rule]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"RandomChoice", "[", 
+         RowBox[{"{", 
+          RowBox[{"True", ",", "False"}], "}"}], "]"}], "&"}], ")"}]}], 
+     "|>"}], "]"}]}], "//", "\[IndentingNewLine]", 
+  RowBox[{"Dataset", "/*", "DatasetGrid"}]}]], "Input",
+ CellChangeTimes->{{3.7404837732576275`*^9, 3.7404837799783015`*^9}, {
+   3.7404837909184675`*^9, 3.740483806601656*^9}, {3.7404838187550373`*^9, 
+   3.740483821023308*^9}, 3.7404838352023335`*^9, 3.7405742465304317`*^9},
+ CellLabel->
+  "7/15/18 01:03:21 \
+In[24]:=",ExpressionUUID->"6e88b42c-733f-4f6c-b220-597cb8aeaa65"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {
+      ItemBox[
+       PaneBox["\<\"alice\"\>",
+        ImageSize->{{48.00000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox["\<\"shoeSize\"\>",
+        ImageSize->{{76.80000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"7", ",", "\<\"\[FilledVerySmallSquare]\"\>", ",", "7"}], 
+         "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {
+      ItemBox[
+       PaneBox["\<\"bob\"\>",
+        ImageSize->{{48.00000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox["\<\"age\"\>",
+        ImageSize->{{76.80000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"35", ",", "35", ",", "27"}], "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {"\[SpanFromAbove]", 
+      ItemBox[
+       PaneBox["\<\"hair\"\>",
+        ImageSize->{{76.80000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"\[LeftAssociation]", 
+         RowBox[{"\<\"length\"\>", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "120", ",", "120", ",", "\<\"\[FilledVerySmallSquare]\"\>"}], 
+           "}"}]}], "\[RightAssociation]"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]}
+    },
+    AutoDelete->False,
+    BaseStyle->{FontFamily -> "Verdana", FontSize -> 12},
+    FrameStyle->GrayLevel[0.85],
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxDividers->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{
+     "Columns" -> {{All}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.5}}, 
+      "RowsIndexed" -> {}}],
+   "Grid"],
+  StripOnInput->False,
+  ShowAutoStyles->False,
+  NumberMarks->False,
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{{3.740483807282607*^9, 3.740483821585785*^9}, 
+   3.7404838363381042`*^9, 3.740574247452442*^9, 3.7405766012124743`*^9},
+ CellLabel->
+  "7/15/18 01:03:21 \
+Out[24]=",ExpressionUUID->"fbde6869-a8ed-4ac6-9e80-a95b0a8ca1df"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"peopleFacts", ",", "newFacts"}], "}"}], "//", 
+      RowBox[{"MergeInfinity", "[", "Last", "]"}]}], "\[IndentingNewLine]", 
+     ",", "newFacts", "\[IndentingNewLine]", ",", "peopleFacts"}], 
+    "\[IndentingNewLine]", "}"}], "//", 
+   RowBox[{"AssociationStrictDiff", "[", 
+    RowBox[{"<|", 
+     RowBox[{"\"\<test\>\"", "\[Rule]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{"TrueQ", "[", 
+          RowBox[{
+           RowBox[{"AllTrue", "[", 
+            RowBox[{
+             RowBox[{"{", "##", "}"}], ",", "NumericQ"}], "]"}], "||", 
+           RowBox[{"SameQ", "[", "##", "]"}]}], "]"}], "\[IndentingNewLine]", 
+         ")"}], "&"}], ")"}]}], "|>"}], "]"}]}], "//", "\[IndentingNewLine]", 
+  RowBox[{"Dataset", "/*", "DatasetGrid"}]}]], "Input",
+ CellChangeTimes->{{3.740484006634478*^9, 3.7404840455720825`*^9}, 
+   3.740574250784892*^9},
+ CellLabel->
+  "7/15/18 01:03:32 \
+In[25]:=",ExpressionUUID->"af2f97a6-b619-45d1-b3ed-b68cd6b9b3f5"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {
+      ItemBox[
+       PaneBox["\<\"alice\"\>",
+        ImageSize->{{48.00000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"age\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{28.800000000000004`, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"29", ",", "\<\"\[FilledVerySmallSquare]\"\>", ",", "29"}], 
+         "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {"\[SpanFromAbove]", 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"shoeSize\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{76.80000000000001, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"7", ",", "\<\"\[FilledVerySmallSquare]\"\>", ",", "7"}], 
+         "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {
+      ItemBox[
+       PaneBox["\<\"bob\"\>",
+        ImageSize->{{48.00000000000001, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"sex\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{28.800000000000004`, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{"\<\"male\"\>", ",", "\<\"\[FilledVerySmallSquare]\"\>", 
+          ",", "\<\"male\"\>"}], "}"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]},
+     {"\[SpanFromAbove]", 
+      ItemBox[
+       PaneBox[
+        PaneBox["\<\"hair\"\>",
+         Alignment->{Left, Baseline},
+         ImageSize->{{38.400000000000006`, Full}, Automatic}],
+        ImageSize->{{60, Full}, Automatic}],
+       Alignment->{Left, Baseline},
+       Background->GrayLevel[0.95],
+       StripOnInput->False], 
+      ItemBox[
+       StyleBox[
+        RowBox[{"\[LeftAssociation]", 
+         RowBox[{
+          RowBox[{"\<\"color\"\>", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             InterpretationBox[
+              ButtonBox[
+               TooltipBox[
+                GraphicsBox[{
+                  {GrayLevel[0], RectangleBox[{0, 0}]}, 
+                  {GrayLevel[0], RectangleBox[{1, -1}]}, 
+                  {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+                 AspectRatio->1,
+                 DefaultBaseStyle->"ColorSwatchGraphics",
+                 Frame->True,
+                 FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+                 FrameTicks->None,
+                 
+                 ImageSize->
+                  Dynamic[{
+                   Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}],
+                 PlotRangePadding->None],
+                StyleBox[
+                 RowBox[{"RGBColor", "[", 
+                   RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+                 False]],
+               Appearance->None,
+               BaseStyle->{},
+               BaselinePosition->Baseline,
+               ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+                 If[
+                  Not[
+                   AbsoluteCurrentValue["Deployed"]], 
+                  SelectionMove[Typeset`box$, All, Expression]; 
+                  FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                  FrontEnd`Private`$ColorSelectorInitialColor = 
+                   RGBColor[1, 0, 0]; 
+                  FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                  MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]],
+               DefaultBaseStyle->{},
+               Evaluator->Automatic,
+               Method->"Preemptive"],
+              RGBColor[1, 0, 0],
+              Editable->False,
+              Selectable->False], ",", "\<\"\[FilledVerySmallSquare]\"\>", 
+             ",", 
+             InterpretationBox[
+              ButtonBox[
+               TooltipBox[
+                GraphicsBox[{
+                  {GrayLevel[0], RectangleBox[{0, 0}]}, 
+                  {GrayLevel[0], RectangleBox[{1, -1}]}, 
+                  {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+                 AspectRatio->1,
+                 DefaultBaseStyle->"ColorSwatchGraphics",
+                 Frame->True,
+                 FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+                 FrameTicks->None,
+                 
+                 ImageSize->
+                  Dynamic[{
+                   Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}],
+                 PlotRangePadding->None],
+                StyleBox[
+                 RowBox[{"RGBColor", "[", 
+                   RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> 
+                 False]],
+               Appearance->None,
+               BaseStyle->{},
+               BaselinePosition->Baseline,
+               ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+                 If[
+                  Not[
+                   AbsoluteCurrentValue["Deployed"]], 
+                  SelectionMove[Typeset`box$, All, Expression]; 
+                  FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                  FrontEnd`Private`$ColorSelectorInitialColor = 
+                   RGBColor[1, 0, 0]; 
+                  FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                  MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]],
+               DefaultBaseStyle->{},
+               Evaluator->Automatic,
+               Method->"Preemptive"],
+              RGBColor[1, 0, 0],
+              Editable->False,
+              Selectable->False]}], "}"}]}], ",", 
+          RowBox[{"\<\"length\"\>", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "120", ",", "120", ",", "\<\"\[FilledVerySmallSquare]\"\>"}], 
+            "}"}]}]}], "\[RightAssociation]"}],
+        StripOnInput->False,
+        ShowStringCharacters->False],
+       StripOnInput->False]}
+    },
+    AutoDelete->False,
+    BaseStyle->{FontFamily -> "Verdana", FontSize -> 12},
+    FrameStyle->GrayLevel[0.85],
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxDividers->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{
+     "Columns" -> {{All}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.5}}, 
+      "RowsIndexed" -> {}}],
+   "Grid"],
+  StripOnInput->False,
+  ShowAutoStyles->False,
+  NumberMarks->False,
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{3.7404840484825153`*^9, 3.740574253782611*^9, 
+  3.740576612185622*^9},
+ CellLabel->
+  "7/15/18 01:03:32 \
+Out[25]=",ExpressionUUID->"bd460098-b0c0-4e3b-9b5c-1396e21ec53c"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+CellContext->Notebook,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 163, 3, 44, "Subsubsection",ExpressionUUID->"c0a05cd1-162f-457c-ac32-61a06a6c97d9"],
+Cell[746, 27, 3515, 84, 62, "Input",ExpressionUUID->"c30171f5-d5b8-426c-a100-99143f45200a"],
+Cell[4264, 113, 299, 6, 48, "Input",ExpressionUUID->"b59e91d8-eb2f-43c9-9246-1eb441e4ec55"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4600, 124, 166, 3, 44, "Subsubsection",ExpressionUUID->"d80f8eaa-3698-4396-9f90-ee7707639a6e"],
+Cell[CellGroupData[{
+Cell[4791, 131, 438, 9, 28, "Input",ExpressionUUID->"a46120ca-88b6-45fd-bd02-b15c83fb30ec"],
+Cell[5232, 142, 3111, 75, 46, "Output",ExpressionUUID->"86f6a8d0-5c77-46b1-a3be-430fe045be14"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8380, 222, 1400, 35, 195, "Input",ExpressionUUID->"4f15e5ca-fe16-4073-b6c2-b8a7ef7ee0c0"],
+Cell[9783, 259, 14048, 301, 164, "Output",ExpressionUUID->"818d3377-8e75-4e4c-af72-080b2f953261"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23880, 566, 168, 3, 44, "Subsubsection",ExpressionUUID->"839fe12c-3f1a-404d-9a2b-cc4630c185c9"],
+Cell[24051, 571, 252, 4, 34, "Text",ExpressionUUID->"5f3353ad-d216-47d2-b230-c1f391a6c348"],
+Cell[CellGroupData[{
+Cell[24328, 579, 661, 17, 119, "Input",ExpressionUUID->"5d466cf3-df33-450e-b14a-18c9db0a03e1"],
+Cell[24992, 598, 9050, 250, 184, "Output",ExpressionUUID->"8d52d192-f04e-47d3-8b29-ba2300c9d90b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34079, 853, 578, 14, 119, "Input",ExpressionUUID->"d494c18e-2a78-4ea1-8ff3-7da3d95aaebf"],
+Cell[34660, 869, 462, 11, 46, "Output",ExpressionUUID->"cc23221c-b6ad-4816-b481-1d7b1bb0d556"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35159, 885, 805, 18, 138, "Input",ExpressionUUID->"01932027-d89b-49eb-af1e-8c9753f7a40e"],
+Cell[35967, 905, 8535, 224, 164, "Output",ExpressionUUID->"3feb7689-40aa-4e64-9507-bc362afb515c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44539, 1134, 1073, 26, 138, "Input",ExpressionUUID->"6e88b42c-733f-4f6c-b220-597cb8aeaa65"],
+Cell[45615, 1162, 2670, 80, 109, "Output",ExpressionUUID->"fbde6869-a8ed-4ac6-9e80-a95b0a8ca1df"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48322, 1247, 1142, 29, 185, "Input",ExpressionUUID->"af2f97a6-b619-45d1-b3ed-b68cd6b9b3f5"],
+Cell[49467, 1278, 7947, 207, 127, "Output",ExpressionUUID->"bd460098-b0c0-4e3b-9b5c-1396e21ec53c"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
