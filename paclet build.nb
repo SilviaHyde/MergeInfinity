@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      7534,        195]
-NotebookOptionsPosition[      6316,        169]
-NotebookOutlinePosition[      6663,        184]
-CellTagsIndexPosition[      6620,        181]
+NotebookDataLength[      6764,        177]
+NotebookOptionsPosition[      5765,        155]
+NotebookOutlinePosition[      6112,        170]
+CellTagsIndexPosition[      6069,        167]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,42 +34,28 @@ Cell[BoxData[
   "11/19/18 12:31:55 \
 In[21]:=",ExpressionUUID->"711a46fd-ca2c-403f-ba88-0d15ed7e8132"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{"projdir", "=", 
    RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\n", 
- RowBox[{"packdir", "=", 
-  RowBox[{"FileNameJoin", "[", 
-   RowBox[{"{", 
-    RowBox[{"projdir", ",", "packageName"}], "}"}], 
-   "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"releasedir", "=", 
-  RowBox[{"FileNameJoin", "[", 
-   RowBox[{"{", 
-    RowBox[{"projdir", ",", "\"\<release\>\""}], "}"}], "]"}]}]}], "Input",
+ RowBox[{
+  RowBox[{"packdir", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"projdir", ",", "packageName"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"releasedir", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"projdir", ",", "\"\<release\>\""}], "}"}], "]"}]}], 
+  ";"}]}], "Input",
  CellChangeTimes->{{3.751589728642379*^9, 3.75158973582628*^9}, 
    3.7515897657373266`*^9, {3.751589936012869*^9, 3.75158995138229*^9}, {
-   3.751590532680421*^9, 3.7515905445767803`*^9}, 3.7515907186721973`*^9},
- CellLabel->
-  "11/19/18 12:32:11 \
-In[22]:=",ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-6efead5bc8bb"],
-
-Cell[BoxData["\<\"C:\\\\Users\\\\Susilvia\\\\Documents\\\\GitHub\\\\\
-MergeInfinity\\\\MergeInfinity\"\>"], "Output",
- CellChangeTimes->{3.7515905462260923`*^9, 3.7515907310835705`*^9},
- CellLabel->
-  "11/19/18 12:32:11 \
-Out[23]=",ExpressionUUID->"6d5952b2-9faa-476b-87da-ddff8801cc9f"],
-
-Cell[BoxData["\<\"C:\\\\Users\\\\Susilvia\\\\Documents\\\\GitHub\\\\\
-MergeInfinity\\\\release\"\>"], "Output",
- CellChangeTimes->{3.7515905462260923`*^9, 3.7515907310835705`*^9},
- CellLabel->
-  "11/19/18 12:32:11 \
-Out[24]=",ExpressionUUID->"ecb3ca73-5560-4fc7-8252-437a17528d80"]
-}, Open  ]],
+   3.751590532680421*^9, 3.7515905445767803`*^9}, 3.7515907186721973`*^9, {
+   3.7516897009496455`*^9, 
+   3.7516897014278193`*^9}},ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-\
+6efead5bc8bb"],
 
 Cell[CellGroupData[{
 
@@ -185,18 +171,14 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 373, 6, 45, "InitializationCell",ExpressionUUID->"a5f27418-18e7-4657-94c5-bb5da0c922e9"],
 Cell[934, 28, 267, 6, 51, "Input",ExpressionUUID->"711a46fd-ca2c-403f-ba88-0d15ed7e8132"],
+Cell[1204, 36, 802, 21, 76, "Input",ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-6efead5bc8bb"],
 Cell[CellGroupData[{
-Cell[1226, 38, 745, 18, 90, "Input",ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-6efead5bc8bb"],
-Cell[1974, 58, 287, 5, 35, "Output",ExpressionUUID->"6d5952b2-9faa-476b-87da-ddff8801cc9f"],
-Cell[2264, 65, 281, 5, 35, "Output",ExpressionUUID->"ecb3ca73-5560-4fc7-8252-437a17528d80"]
+Cell[2031, 61, 980, 21, 109, "Input",ExpressionUUID->"b0457682-bf39-4aed-914e-d0e3b6ad1525"],
+Cell[3014, 84, 1017, 21, 35, "Output",ExpressionUUID->"bfdf2c5b-77a5-4ae1-9e26-2896f5f2b407"],
+Cell[4034, 107, 1051, 22, 35, "Output",ExpressionUUID->"7c442738-861e-4d48-986b-3591e86b067a"]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[2582, 75, 980, 21, 109, "Input",ExpressionUUID->"b0457682-bf39-4aed-914e-d0e3b6ad1525"],
-Cell[3565, 98, 1017, 21, 35, "Output",ExpressionUUID->"bfdf2c5b-77a5-4ae1-9e26-2896f5f2b407"],
-Cell[4585, 121, 1051, 22, 35, "Output",ExpressionUUID->"7c442738-861e-4d48-986b-3591e86b067a"]
-}, Open  ]],
-Cell[5651, 146, 478, 15, 51, "Input",ExpressionUUID->"2176f629-9acf-42c5-a7b4-5c8bc67e7b64"],
-Cell[6132, 163, 180, 4, 37, "Input",ExpressionUUID->"69c74d26-28e8-4b8d-ba77-ebc43a1e8703"]
+Cell[5100, 132, 478, 15, 51, "Input",ExpressionUUID->"2176f629-9acf-42c5-a7b4-5c8bc67e7b64"],
+Cell[5581, 149, 180, 4, 37, "Input",ExpressionUUID->"69c74d26-28e8-4b8d-ba77-ebc43a1e8703"]
 }
 ]
 *)
