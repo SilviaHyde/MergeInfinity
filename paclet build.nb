@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6764,        177]
-NotebookOptionsPosition[      5765,        155]
-NotebookOutlinePosition[      6112,        170]
-CellTagsIndexPosition[      6069,        167]
+NotebookDataLength[      7073,        174]
+NotebookOptionsPosition[      6076,        152]
+NotebookOutlinePosition[      6421,        167]
+CellTagsIndexPosition[      6378,        164]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,17 +22,14 @@ Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<PacletManager`\>\"", "]"}]], "InitializationCell",
  CellChangeTimes->{{3.751554519701045*^9, 3.7515545258504267`*^9}, 
    3.7515897715834656`*^9, {3.7515899309688845`*^9, 3.751589932042671*^9}, 
-   3.7515899553262444`*^9, {3.751590575507745*^9, 
-   3.7515905817540216`*^9}},ExpressionUUID->"a5f27418-18e7-4657-94c5-\
-bb5da0c922e9"],
+   3.7515899553262444`*^9, {3.751590575507745*^9, 3.7515905817540216`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"a5f27418-18e7-4657-94c5-bb5da0c922e9"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"packageName", "=", "\"\<MergeInfinity\>\""}], ";"}]], "Input",
  CellChangeTimes->{{3.7515906924103975`*^9, 3.751590709701289*^9}},
- CellLabel->
-  "11/19/18 12:31:55 \
-In[21]:=",ExpressionUUID->"711a46fd-ca2c-403f-ba88-0d15ed7e8132"],
+ CellLabel->"In[30]:=",ExpressionUUID->"711a46fd-ca2c-403f-ba88-0d15ed7e8132"],
 
 Cell[BoxData[{
  RowBox[{
@@ -49,13 +46,21 @@ Cell[BoxData[{
    RowBox[{"FileNameJoin", "[", 
     RowBox[{"{", 
      RowBox[{"projdir", ",", "\"\<release\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"TrueQ", "[", 
+     RowBox[{"!", 
+      RowBox[{"DirectoryQ", "[", "releasedir", "]"}]}], "]"}], ",", 
+    RowBox[{"CreateDirectory", "[", "releasedir", "]"}]}], "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.751589728642379*^9, 3.75158973582628*^9}, 
    3.7515897657373266`*^9, {3.751589936012869*^9, 3.75158995138229*^9}, {
    3.751590532680421*^9, 3.7515905445767803`*^9}, 3.7515907186721973`*^9, {
-   3.7516897009496455`*^9, 
-   3.7516897014278193`*^9}},ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-\
-6efead5bc8bb"],
+   3.7516897009496455`*^9, 3.7516897014278193`*^9}, {3.7658613884105606`*^9, 
+   3.765861442454734*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-6efead5bc8bb"],
 
 Cell[CellGroupData[{
 
@@ -78,9 +83,7 @@ Cell[BoxData[{
    3.7515899553262444`*^9, {3.751590575507745*^9, 3.7515905817540216`*^9}, 
    3.7515906875104733`*^9, {3.75159072150735*^9, 3.7515907229269915`*^9}, {
    3.7515907569296865`*^9, 3.7515907571796846`*^9}},
- CellLabel->
-  "11/19/18 12:38:01 \
-In[41]:=",ExpressionUUID->"b0457682-bf39-4aed-914e-d0e3b6ad1525"],
+ CellLabel->"In[35]:=",ExpressionUUID->"b0457682-bf39-4aed-914e-d0e3b6ad1525"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -94,16 +97,14 @@ Cell[BoxData[
    "Extensions" -> {{
      "Kernel", "Root" -> ".", "Context" -> "MergeInfinity`"}, {
      "Documentation", "MainPage" -> "Tutorials/MergeInfinity"}}, "Location" -> 
-   "C:\\Users\\Susilvia\\AppData\\Roaming\\Mathematica\\Paclets\\Repository\\\
+   "C:\\Users\\Sil\\AppData\\Roaming\\Mathematica\\Paclets\\Repository\\\
 MergeInfinity-0.0.1"]]], "Output",
  CellChangeTimes->{3.751538447877312*^9, 3.751545537820163*^9, 
   3.7515542494244857`*^9, 3.7515545040914*^9, 3.7515545584355164`*^9, 
   3.7515550887087355`*^9, 3.7515555007143936`*^9, 3.7515893320346737`*^9, 
   3.7515906184142675`*^9, 3.7515907443492017`*^9, 3.7515907596018906`*^9, 
-  3.751591083011486*^9},
- CellLabel->
-  "11/19/18 12:38:03 \
-Out[43]=",ExpressionUUID->"bfdf2c5b-77a5-4ae1-9e26-2896f5f2b407"],
+  3.751591083011486*^9, 3.765861452445269*^9, 3.765861519109316*^9},
+ CellLabel->"Out[37]=",ExpressionUUID->"449cf2aa-fc7c-4925-8aee-eee23b226e1a"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -118,16 +119,14 @@ Cell[BoxData[
     "Extensions" -> {{
       "Kernel", "Root" -> ".", "Context" -> "MergeInfinity`"}, {
       "Documentation", "MainPage" -> "Tutorials/MergeInfinity"}}, "Location" -> 
-    "C:\\Users\\Susilvia\\AppData\\Roaming\\Mathematica\\Paclets\\Repository\\\
+    "C:\\Users\\Sil\\AppData\\Roaming\\Mathematica\\Paclets\\Repository\\\
 MergeInfinity-0.0.1"]], "}"}]], "Output",
  CellChangeTimes->{3.751538447877312*^9, 3.751545537820163*^9, 
   3.7515542494244857`*^9, 3.7515545040914*^9, 3.7515545584355164`*^9, 
   3.7515550887087355`*^9, 3.7515555007143936`*^9, 3.7515893320346737`*^9, 
   3.7515906184142675`*^9, 3.7515907443492017`*^9, 3.7515907596018906`*^9, 
-  3.751591083027112*^9},
- CellLabel->
-  "11/19/18 12:38:03 \
-Out[44]=",ExpressionUUID->"7c442738-861e-4d48-986b-3591e86b067a"]
+  3.751591083011486*^9, 3.765861452445269*^9, 3.7658615191122904`*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"33e10281-3874-4e50-84fd-267d01752b06"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -143,9 +142,7 @@ Cell[BoxData[
  CellChangeTimes->{
   3.7515907817944355`*^9, 3.751590792416787*^9, {3.7515908129770107`*^9, 
    3.751590830385948*^9}},
- CellLabel->
-  "11/19/18 12:33:52 \
-In[38]:=",ExpressionUUID->"2176f629-9acf-42c5-a7b4-5c8bc67e7b64"],
+ CellLabel->"In[39]:=",ExpressionUUID->"2176f629-9acf-42c5-a7b4-5c8bc67e7b64"],
 
 Cell[BoxData[
  RowBox[{"Quit", "[", "]"}]], "Input",
@@ -153,9 +150,9 @@ Cell[BoxData[
   3.7515910939395933`*^9}},ExpressionUUID->"69c74d26-28e8-4b8d-ba77-\
 ebc43a1e8703"]
 },
-WindowSize->{1165, 770},
-WindowMargins->{{Automatic, 69}, {69, Automatic}},
-FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+WindowSize->{766, 772},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
 StyleDefinitions->"myNoteStyle.nb"
 ]
 (* End of Notebook Content *)
@@ -169,16 +166,16 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 373, 6, 45, "InitializationCell",ExpressionUUID->"a5f27418-18e7-4657-94c5-bb5da0c922e9"],
-Cell[934, 28, 267, 6, 51, "Input",ExpressionUUID->"711a46fd-ca2c-403f-ba88-0d15ed7e8132"],
-Cell[1204, 36, 802, 21, 76, "Input",ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-6efead5bc8bb"],
+Cell[558, 20, 390, 5, 45, "InitializationCell",ExpressionUUID->"a5f27418-18e7-4657-94c5-bb5da0c922e9"],
+Cell[951, 27, 244, 4, 37, "Input",ExpressionUUID->"711a46fd-ca2c-403f-ba88-0d15ed7e8132"],
+Cell[1198, 33, 1131, 29, 95, "Input",ExpressionUUID->"3b7ec5a0-1eab-4431-bc24-6efead5bc8bb"],
 Cell[CellGroupData[{
-Cell[2031, 61, 980, 21, 109, "Input",ExpressionUUID->"b0457682-bf39-4aed-914e-d0e3b6ad1525"],
-Cell[3014, 84, 1017, 21, 35, "Output",ExpressionUUID->"bfdf2c5b-77a5-4ae1-9e26-2896f5f2b407"],
-Cell[4034, 107, 1051, 22, 35, "Output",ExpressionUUID->"7c442738-861e-4d48-986b-3591e86b067a"]
+Cell[2354, 66, 957, 19, 95, "Input",ExpressionUUID->"b0457682-bf39-4aed-914e-d0e3b6ad1525"],
+Cell[3314, 87, 1033, 19, 21, "Output",ExpressionUUID->"449cf2aa-fc7c-4925-8aee-eee23b226e1a"],
+Cell[4350, 108, 1069, 20, 21, "Output",ExpressionUUID->"33e10281-3874-4e50-84fd-267d01752b06"]
 }, Open  ]],
-Cell[5100, 132, 478, 15, 51, "Input",ExpressionUUID->"2176f629-9acf-42c5-a7b4-5c8bc67e7b64"],
-Cell[5581, 149, 180, 4, 37, "Input",ExpressionUUID->"69c74d26-28e8-4b8d-ba77-ebc43a1e8703"]
+Cell[5434, 131, 455, 13, 37, "Input",ExpressionUUID->"2176f629-9acf-42c5-a7b4-5c8bc67e7b64"],
+Cell[5892, 146, 180, 4, 37, "Input",ExpressionUUID->"69c74d26-28e8-4b8d-ba77-ebc43a1e8703"]
 }
 ]
 *)
